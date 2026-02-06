@@ -31,7 +31,7 @@ agent: agent
 
 ## 入力（あなたが最初にやること）
 
-1. `docs/implements_plan.md` からタスクID `$TASK_ID` を検索する（`@workspace` または参照されたファイルから）。
+1. `docs/implements_plan.md` からタスクID `${input:taskID:例) T-001}` を検索する（`@workspace` または参照されたファイルから）。
 2. 該当タスクの以下の情報を抽出する：
    - 優先度（P0/P1/P2）
    - 対象（機能ID/画面ID/API ID等）
@@ -85,7 +85,7 @@ agent: agent
 
 1. **`_tasks/<タスクID>.md` は作成しない**
 2. 以下を出力して終了する：
-   - 「タスクID `$TASK_ID` が見つかりません」
+   - 「タスクID `${input:taskID:例) T-001}` が見つかりません」
    - 追加で必要な情報（質問項目）を箇条書きで提示
    - `docs/implements_plan.md` への追加提案（必要に応じて）
 
@@ -593,7 +593,7 @@ TBDが存在する場合、このフェーズでユーザーに質問して解�
 
 ## 手順（まとめ）
 
-1. `docs/implements_plan.md` からタスクID `$TASK_ID` のタスクを確認する（`@workspace` または参照されたファイルからcontextを取得）。
+1. `docs/implements_plan.md` からタスクID `${input:taskID:例) T-001}` のタスクを確認する（`@workspace` または参照されたファイルからcontextを取得）。
 2. `docs/` 配下の設計書から、実装に必要な仕様・制約・I/F・データ構造・受け入れ条件を抽出する
 3. PR分割ルールに従い、タスクを **PR単位**に分割する
 4. 下記テンプレートに沿って、`_tasks/<タスクID>.md` を作成する
@@ -623,8 +623,8 @@ version: "1.0.0"
 
 - **目的**: <このタスクで達成すること>
 - **対象**: <機能ID/画面ID/API ID>
-- **依存**: <前提タスク（$TASK_ID）>
-- **後続**: <このタスクを待つタスク（$TASK_ID）>
+- **依存**: <前提タスク（`${input:taskID:例) T-001}`）>
+- **後続**: <このタスクを待つタスク（`${input:taskID:例) T-001}`）>
 
 ## 参照設計書
 
